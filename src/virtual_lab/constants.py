@@ -1,6 +1,6 @@
 """Holds constants."""
 
-DEFAULT_MODEL = "gpt-5.2"
+DEFAULT_MODEL = "gpt-oss"
 
 # Prices in USD as of December 30, 2025 (https://openai.com/api/pricing/)
 MODEL_TO_INPUT_PRICE_PER_TOKEN = {
@@ -14,6 +14,7 @@ MODEL_TO_INPUT_PRICE_PER_TOKEN = {
     "gpt-5-nano": 0.05 / 10**6,
     "gpt-5.2": 1.75 / 10**6,
     "gpt-5.2-pro": 21 / 10**6,
+    "gpt-oss": 0,
 }
 
 MODEL_TO_OUTPUT_PRICE_PER_TOKEN = {
@@ -27,6 +28,7 @@ MODEL_TO_OUTPUT_PRICE_PER_TOKEN = {
     "gpt-5-nano": 0.4 / 10**6,
     "gpt-5.2": 14 / 10**6,
     "gpt-5.2-pro": 168 / 10**6,
+    "gpt-oss": 0,
 }
 
 FINETUNING_MODEL_TO_INPUT_PRICE_PER_TOKEN = {

@@ -89,7 +89,7 @@ def run_meeting(
     start_time = time.time()
 
     # Set up client
-    client = OpenAI()
+    client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
 
     # Set up team
     if meeting_type == "team":

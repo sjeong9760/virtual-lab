@@ -102,7 +102,8 @@ def run_pubmed_search(query: str, num_articles: int = 3, abstract_only: bool = F
         if title is None:
             continue
 
-        texts.append(f"PMCID = {pmcid}\n\nTitle = {title}\n\n{'\n\n'.join(content or [])}")
+        separator = "\n\n"
+        texts.append(f"PMCID = {pmcid}\n\nTitle = {title}\n\n{separator.join(content or [])}")
         titles.append(title)
         pmcids.append(pmcid)
 
@@ -248,7 +249,8 @@ def compute_token_cost(model: str, input_token_count: int, output_token_count: i
     output_key = _find_model_price_key(model, MODEL_TO_OUTPUT_PRICE_PER_TOKEN)
 
     if input_key is None or output_key is None:
-        raise ValueError(f'Cost of model "{model}" not known')
+        # For local models or unknown models, return 0.0 cost
+        return 0.0
 
     return (
         input_token_count * MODEL_TO_INPUT_PRICE_PER_TOKEN[input_key]
